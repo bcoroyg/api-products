@@ -1,0 +1,32 @@
+{
+  "name": "api-rest-ecommerce",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "set DEBUG=app:* && set NODE_ENV=development && nodemon src/index",
+    "start": "set NODE_ENV=production && node src/index",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.1",
+    "eslint": "^8.22.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": ">=7",
+    "lint-staged": ">=10",
+    "nodemon": "^2.0.19",
+    "prettier": "^2.7.1"
+  },
+  "dependencies": {
+    "express": "^4.18.1",
+    "mongodb": "^4.8.1"
+  },
+  "engines": {
+    "node": "16.x"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix"
+  }
+}
