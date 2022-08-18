@@ -1,4 +1,5 @@
 import { Router } from "express";
+import passport from 'passport';
 import ProductService from "../services/product.service.js";
 import validationHandler from "../utils/middlewares/validationHandler.js";
 import {
@@ -43,6 +44,7 @@ router.get('/:productId',
 );
 
 router.post('/',
+  passport.authenticate("jwt", { session: false }),
   validationHandler(createProductSchema),
   async (req, res, next) => {
     const { body } = req;
@@ -59,6 +61,7 @@ router.post('/',
 );
 
 router.put('/:productId',
+  passport.authenticate("jwt", { session: false }),
   validationHandler(productIdSchema, "params"),
   validationHandler(updateProductSchema),
   async (req, res, next) => {
@@ -77,6 +80,7 @@ router.put('/:productId',
 );
 
 router.delete('/:productId',
+  passport.authenticate("jwt", { session: false }),
   validationHandler(productIdSchema, "params"),
   async (req, res, next) => {
     const { productId } = req.params;
