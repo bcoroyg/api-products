@@ -7,9 +7,10 @@ const app = express();
 //Middlewares
 app.use(express.json());
 
-//router
+//routes
 routerAPI(app);
 
+//server
 app.listen(config.port, () => {
   console.log(`Server started on port`);
 });
