@@ -5,8 +5,8 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "dev": "set DEBUG=app:* && set NODE_ENV=development && nodemon src/index",
-    "start": "set NODE_ENV=production && node src/index",
+    "dev": "export DEBUG=app:* && export NODE_ENV=development && nodemon src/index",
+    "start": "export NODE_ENV=production && node src/index",
     "prepare": "husky install"
   },
   "devDependencies": {
@@ -20,7 +20,9 @@
     "prettier": "^2.7.1"
   },
   "dependencies": {
+    "@hapi/boom": "^10.0.0",
     "express": "^4.18.1",
+    "joi": "^17.6.0",
     "mongodb": "^4.8.1"
   },
   "engines": {
