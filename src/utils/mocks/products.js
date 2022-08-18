@@ -64,4 +64,22 @@ const productsMock = [
   }
 ];
 
-export default productsMock
+const filteredProductsMock = (tag) => {
+  return productsMock.filter(product => product.tags.includes(tag));
+}
+
+class ProductsServiceMock {
+  async getProducts() {
+    return Promise.resolve(productsMock);
+  }
+
+  async createProduct() {
+    return Promise.resolve("6bedb1267d1ca7f3053e2875");
+  }
+}
+
+export {
+  productsMock,
+  filteredProductsMock,
+  ProductsServiceMock
+}

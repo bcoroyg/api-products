@@ -1,6 +1,8 @@
 import { Router } from "express";
 import productController from '../controllers/product.controller.js';
 import authController from '../controllers/auth.controller.js';
+//passport
+import "../utils/auth/index.js"
 
 const routerAPI = (app) => {
   const router = Router();
