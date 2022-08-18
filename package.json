@@ -5,8 +5,11 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "dev": "export DEBUG=app:* && export NODE_ENV=development && nodemon src/index",
+    "dev": "export NODE_ENV=development && nodemon src/index",
     "start": "export NODE_ENV=production && node src/index",
+    "dev:inspect": "nodemon --inspect index",
+    "dev:debug": "DEBUG=express:*,app:* yarn dev",
+    "debug": "DEBUG=express:*,app:* yarn start",
     "prepare": "husky install",
     "test": "mocha **/**/*.test.js --exit"
   },
@@ -18,21 +21,22 @@
     "eslint-plugin-prettier": "^4.2.1",
     "husky": ">=7",
     "lint-staged": ">=10",
+    "mocha": "^10.0.0",
     "nodemon": "^2.0.19",
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "supertest": "^6.2.4"
   },
   "dependencies": {
     "@hapi/boom": "^10.0.0",
     "bcrypt": "^5.0.1",
+    "debug": "^4.3.4",
     "express": "^4.18.1",
     "joi": "^17.6.0",
     "jsonwebtoken": "^8.5.1",
-    "mocha": "^10.0.0",
     "mongodb": "^4.8.1",
     "passport": "^0.6.0",
     "passport-http": "^0.3.0",
-    "passport-jwt": "^4.0.0",
-    "supertest": "^6.2.4"
+    "passport-jwt": "^4.0.0"
   },
   "engines": {
     "node": "16.x"

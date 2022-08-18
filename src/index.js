@@ -3,7 +3,8 @@ import config from './config/index.js';
 import routerAPI from './routes/index.js';
 import { errorHandler, logErrors, wrapErrors } from './utils/middlewares/errorsHandlers.js';
 import notFoundHandler from './utils/middlewares/notFoundHandler.js';
-
+import Debug from "debug";
+const debug = Debug("app:server");
 const app = express();
 
 //Middlewares
@@ -21,7 +22,7 @@ app.use(notFoundHandler);
 
 //server
 app.listen(config.port, () => {
-  console.log(`Server started on port`);
+  debug(`Server started on port`);
 });
 
 export default app;
