@@ -3,7 +3,8 @@ import config from './config/index.js';
 import routerAPI from './routes/index.js';
 import { errorHandler, logErrors, wrapErrors } from './utils/middlewares/errorsHandlers.js';
 import notFoundHandler from './utils/middlewares/notFoundHandler.js';
-
+//passport
+import "./utils/auth/index.js"
 const app = express();
 
 //Middlewares
