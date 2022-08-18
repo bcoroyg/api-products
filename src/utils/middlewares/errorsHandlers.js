@@ -1,16 +1,16 @@
 import boom from '@hapi/boom';
 import config from '../../config/index.js';
 
-const logErrors = (err, req, res, next) => {
-  console.log(err.stack)
-  next(err);
-};
-
 const withErrorStack = (err, stack) => {
   if (config.dev) {
     return { ...err, stack }; // Object.assign({}, err, stack)
   };
   return err;
+};
+
+const logErrors = (err, req, res, next) => {
+  console.log(err.stack)
+  next(err);
 };
 
 const wrapErrors = (err, req, res, next) => {
