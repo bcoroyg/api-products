@@ -9,8 +9,10 @@ import Debug from "debug";
 const debug = Debug("app:server");
 const app = express();
 
-app.use(helmet());
 //Middlewares
+// Helmet
+app.use(helmet());
+//Body-parser (json)
 app.use(express.json());
 
 //routes

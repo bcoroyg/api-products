@@ -1,7 +1,13 @@
+// DEBUG=app:* node src/scripts/mongo/seed-admin.js
+
 import bcrypt from 'bcrypt';
 import chalk from 'chalk';
+import Debug from 'debug';
 import config from '../../config/index.js';
 import MongoLib from '../../lib/mongo.js';
+
+//debug
+const debug = Debug('app:scripts:users');
 
 const buildAdminUser = (password) => {
   return {
@@ -30,15 +36,15 @@ const seedAdmin = async () => {
     const mongoDB = new MongoLib();
 
     if (await hasAdminUser(mongoDB)) {
-      console.log(chalk.yellow("Admin user already exists"));
+      debug(chalk.yellow("Admin user already exists"));
       return process.exit(1);
     }
 
     const adminUserId = await createAdminUser(mongoDB);
-    console.log(chalk.green("Admin user created with id:", adminUserId));
+    debug(chalk.green("Admin user created with id:", adminUserId));
     return process.exit(0);
   } catch (error) {
-    console.log(chalk.red(error));
+    debug(chalk.red(error));
     process.exit(1);
   }
 }
